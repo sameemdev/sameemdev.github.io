@@ -281,69 +281,136 @@ table th {
 .page-content {
   padding: 30px 0;
   flex: 1;
+  
 }
 .page-heading {
   font-size: 32px;
-}
+}/* ===== Post List Heading ===== */
 .post-list-heading {
-  font-size: 28px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #60f0fa; /* Neon cyber blue */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #60f0fa;
+  margin-bottom: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
 }
 
-/* Post list */
+/* ===== Post List ===== */
 .post-list {
   margin-left: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 .post-list > li {
   margin-bottom: 30px;
 }
 
-/* Post preview */
+/* ===== Post Preview Card ===== */
 .post-preview {
-  padding: 1.5rem;
-  border-bottom: 1px solid #334155;
-  transition: background 0.2s ease;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #0f172a;  /* Dark cyber background */
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1); /* subtle glow */
+  transition: all 0.3s ease;
 }
 .post-preview:hover {
-  background: #172033;                /* Subtle darker hover */
+  background: #172033;
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3); /* glowing hover */
+  transform: translateY(-3px);
 }
+
+/* ===== Post Link & Title ===== */
 .post-link {
   text-decoration: none;
   color: inherit;
   display: block;
-  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
 }
 .post-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #60a5fa;                     /* Cyber blue titles */
+  color: #60f0fa; /* Cyber blue */
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
 }
+.post-title:hover {
+  color: #1ee5ff;
+  text-shadow: 0 0 6px #1ee5ff;
+}
+
+/* ===== Post Meta & Excerpt ===== */
 .post-meta {
   font-size: 0.875rem;
   color: #94a3b8;
+  font-style: italic;
+  margin-bottom: 0.75rem;
 }
 .post-excerpt {
   font-size: 1rem;
   color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* ===== Post Content ===== */
+.post-header {
+  margin-bottom: 2rem;
+}
+.post-content {
+  margin-bottom: 3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #cbd5e1;
+}
+.post-content h2 {
+  font-size: 2rem;
+  color: #60f0fa;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 4px #60f0fa;
+}
+.post-content h3 {
+  font-size: 1.5rem;
+  color: #38bdf8;
+  margin-bottom: 0.75rem;
+}
+.post-content h4 {
+  font-size: 1.125rem;
+  color: #94a3b8;
   margin-bottom: 0.5rem;
 }
 
-/* Post content */
-.post-header {
-  margin-bottom: 30px;
+/* ===== Code Blocks & Security Vibe ===== */
+pre, code {
+  background: #0f172a;
+  color: #7dd3fc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  overflow-x: auto;
+  box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2);
 }
-.post-content {
-  margin-bottom: 30px;
+
+/* ===== Links & Buttons ===== */
+a {
+  color: #60f0fa;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-.post-content h2 {
-  font-size: 32px;
+a:hover {
+  color: #1ee5ff;
+  text-shadow: 0 0 6px #1ee5ff;
 }
-.post-content h3 {
-  font-size: 26px;
+
+/* ===== Optional subtle animation ===== */
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 6px #60f0fa; }
+  50% { text-shadow: 0 0 12px #60f0fa; }
 }
-.post-content h4 {
-  font-size: 18px;
+.post-title.glow {
+  animation: glow 2s infinite;
 }

@@ -2,8 +2,8 @@
 layout: post
 title:  "Verifying Detection Coverage for APT28"
 date:   2026-02-09
-categories: []
-tags: [APT]
+categories: [cybersecurity]
+tags: [APT,cybersecurity]
 description: "Verifying detection coverage for APT28"
 ---
 

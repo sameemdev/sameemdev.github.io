@@ -44,66 +44,123 @@
 
   <div class="post-content">
     <style>
-  .about-container {
-    position: relative;
+  .terminal-container {
+    background: #0c0c0c;
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 2rem auto;
     max-width: 900px;
-    padding: 2.5rem;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  }
-
-  /* Background image visible, no dark filter */
-  .about-container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('/assets/images/white-hat-hacker.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.45;  /* Semi-transparent image */
-    z-index: 0;
-  }
-
-  /* White overlay to keep text readable */
-  .about-container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.6); /* Light white overlay */
-    z-index: 1;
-  }
-
-  /* Text above overlays */
-  .about-text {
+    font-family: 'Consolas', 'Courier New', monospace;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
     position: relative;
-    z-index: 2;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.15rem;
+  }
+
+  .terminal-header {
+    background: #1a1a1a;
+    margin: -20px -20px 20px -20px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #333;
+    font-size: 13px;
+    color: #888;
+  }
+
+  .terminal-title {
+    display: inline-block;
+  }
+
+  .terminal-buttons {
+    float: right;
+  }
+
+  .terminal-buttons span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 8px;
+  }
+
+  .btn-close { background: #ff5f56; }
+  .btn-minimize { background: #ffbd2e; }
+  .btn-maximize { background: #27c93f; }
+
+  .terminal-output {
+    color: #c19a6b;
+    font-size: 14px;
     line-height: 1.6;
-    color: #222;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .cmd-prompt {
+    color: #c19a6b;
+    margin-bottom: 10px;
+  }
+
+  .cmd-prompt::before {
+    content: "C:\\Users\\Visitor>";
+    margin-right: 5px;
+  }
+
+  .blink {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .section-header {
+    color: #c19a6b;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 700px) {
-    .about-container {
-      padding: 1.5rem 1rem;
+    .terminal-container {
+      padding: 15px;
+      margin: 1rem;
     }
 
-    .about-text {
-      font-size: 1rem;
+    .terminal-output {
+      font-size: 12px;
     }
   }
 </style>
 
-<div class="about-container">
-  <div class="about-text">
-    <p>
-      I’m a cybersecurity analyst with over two years of experience in Security Operations (SOC), currently focused on securing Microsoft 365 environments.<br /><br />
-      My specialty lies in working with Microsoft Defender XDR, Sentinel, and Entra to build stronger, more resilient defenses. I also have a solid understanding of Zero Trust principles, security assessments, and the fundamentals of detection engineering.
-    </p>
-    <p>
-      Here, I share tips, insights, and things I’ve explored or tested around securing Microsoft 365 and general cybersecurity. It’s a space where I document what I’ve learned, experiment with different approaches, and reflect on practical ways to keep digital tools and data safer. While this is more of a personal interest than part of my formal role, I hope these notes and experiments are useful to others curious about cybersecurity.
-    </p>
+<div class="terminal-container">
+  <div class="terminal-header">
+    <span class="terminal-title">cmd.exe</span>
+    <div class="terminal-buttons">
+      <span class="btn-minimize"></span>
+      <span class="btn-maximize"></span>
+      <span class="btn-close"></span>
+    </div>
+  </div>
+  
+  <div class="terminal-output">
+<span class="cmd-prompt">whoami /all</span>
+
+   User Name     . . . . . . . . . : Sameem Ahmadzai
+   Role          . . . . . . . . . : Secure Infrastructure Consultant 
+   Country/Region. . . . . . . . . : Sweden
+
+
+   Work Experience  . . . . . . . : Detection Engineering | Threat Hunting | 
+                                    Vulnerability Management | Cyber Threat 
+                                    Intelligence | Security Assessments | 
+                                    Basic Endpoint Forensics| Defender XDR|
+                                    Entra ID | Intune
+
+
+   Microsoft Certified  . . . . . : Microsoft Security Operations Analyst (SC-200)
+                                    Microsoft Identity and Access Administrator 
+                                    Associate (SC-300)
+                                    Microsoft Azure Fundamentals (AZ-900)
+
+<span class="cmd-prompt"><span class="blink">_</span></span>
   </div>
 </div>
 

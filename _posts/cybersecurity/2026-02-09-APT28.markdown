@@ -21,7 +21,7 @@ First, collect relevant MITRE ATT&CK technique IDs from the MITRE ATT&CK platfor
 >💡 **Tip:** The figure below is large. To see the subtechniques clearly, right-click and save it to your computer.
 
 <div class="image-container">
-  <img src="{{ site.baseurl }}/assets/images/apt28.svg" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs">
+  <img src="{{ site.baseurl }}/assets/images/APT28.svg" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs">
   <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Overview of APT28 Tactics, Techniques, and Subtechniques</p>
 </div>
 

@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-01T21:58:44+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Overwatch</title><subtitle>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</subtitle><entry><title type="html">Cryptography</title><link href="http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography.html" rel="alternate" type="text/html" title="Cryptography" /><published>2025-10-04T00:00:00+02:00</published><updated>2025-10-04T00:00:00+02:00</updated><id>http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography</id><content type="html" xml:base="http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography.html"><![CDATA[<div class="image-container">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-09T22:34:38+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Overwatch</title><subtitle>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</subtitle><entry><title type="html">Verifying Detection Coverage for APT28</title><link href="http://localhost:4000/2026/02/09/APT28.html" rel="alternate" type="text/html" title="Verifying Detection Coverage for APT28" /><published>2026-02-09T00:00:00+01:00</published><updated>2026-02-09T00:00:00+01:00</updated><id>http://localhost:4000/2026/02/09/APT28</id><content type="html" xml:base="http://localhost:4000/2026/02/09/APT28.html"><![CDATA[<p>APT28 is an infamous group linked to the Russian Intelligence Services <a href="https://attack.mitre.org/groups/G0007/">MITRE Group G0007</a>.<br />
+This APT group has been involved in several highly sophisticated cyberattacks and was recently reported to have exploited a Microsoft Office bypass vulnerability <a href="https://www.zscaler.com/blogs/security-research/apt28-leverages-cve-2026-21509-operation-neusploit">(CVE-2026-21509)</a>.</p>
+
+<p>To protect your organization’s assets from APT28, it is crucial to understand the TTPs they utilize. Detections built around specific APT groups can be too restrictive because APTs do not operate in fixed or repeatable ways—they deliberately change tools, techniques, and workflows. If a detection assumes “APT28 always does X,” it may fail the moment they do Y instead.</p>
+
+<p>In this brief guide, we will review some of the notable tactics, techniques, and procedures used by APT28, which can still be useful as a foundation for your detection coverage.</p>
+
+<h4 id="step-1-threat-coverage-identification">Step 1: Threat Coverage Identification</h4>
+
+<p>First, collect relevant MITRE ATT&amp;CK technique IDs from the MITRE ATT&amp;CK platform or MITRE ATT&amp;CK Navigator. Then, map these technique IDs to available Atomic Red Team tests to identify which adversary behaviors can be emulated.</p>
+
+<blockquote>
+  <p>💡 <strong>Tip:</strong> The figure below is large. To see the subtechniques clearly, right-click and save it to your computer.</p>
+</blockquote>
+
+<div class="image-container">
+  <img src="/assets/images/apt28.svg" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Overview of APT28 Tactics, Techniques, and Subtechniques</p>
+</div>
+
+<h4 id="step-2-verify-available-atomic-red-team-tests">Step 2: Verify Available Atomic Red Team Tests</h4>
+
+<div class="image-container">
+  <img src="/assets/images/APT28_ThreatIds.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 Threat IDs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 2: Screenshot showing which ART tests are available for APT28 Threat IDs</p>
+</div>
+
+<p>From the screenshot above, we can see that only some of the ART tests are available. This means we can now take each of these Threat IDs and check which ART tests are associated with them. For example, the first Threat ID with an associated ART test is T1059.001.</p>
+
+<div class="image-container">
+  <img src="/assets/images/ART-T1059.001.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 3: Atomic Red Team tests associated with technique T1059.001 (Command and Scripting Interpreter: PowerShell)</p>
+</div>
+
+<p>As shown above, there are 22 tests available in Atomic Red Team that are associated with APT28. The technique T1059.001, named “Command and Scripting Interpreter: PowerShell,” is widely used not only by this APT but also by other groups.</p>
+
+<h4 id="step-3-detection-validation">Step 3: Detection Validation</h4>
+
+<p>Execute the corresponding Atomic Red Team tests and observe whether they trigger your current detections.</p>
+
+<ul>
+  <li>Tests that successfully trigger alerts indicate existing detection coverage.</li>
+  <li>Tests that do not trigger alerts highlight gaps for the associated MITRE ATT&amp;CK techniques.</li>
+</ul>
+
+<hr />
+
+<p><strong>Important:</strong> Tests should never be performed in a production environment. After test execution, perform a full clean-up to remove any artifacts, processes, or configuration changes introduced during testing.</p>]]></content><author><name></name></author><category term="APT" /><summary type="html"><![CDATA[Verifying detection coverage for APT28]]></summary></entry><entry><title type="html">Cryptography</title><link href="http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography.html" rel="alternate" type="text/html" title="Cryptography" /><published>2025-10-04T00:00:00+02:00</published><updated>2025-10-04T00:00:00+02:00</updated><id>http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography</id><content type="html" xml:base="http://localhost:4000/cryptography/cybersecurity/encryption/2025/10/04/cryptography.html"><![CDATA[<div class="image-container">
   <img src="/assets/images/encryption.webp" alt="White Hat Hacker" />
 </div>
 <style>
@@ -1262,7 +1309,231 @@ You have several security analysts from a partner company providing SOC services
   <p>💡 <strong>Tip:</strong>  Use the <strong>Settings</strong> section to configure PIM parameters such as duration, MFA, and more.</p>
 </blockquote>
 
-<hr />]]></content><author><name></name></author><category term="Entra ID" /><category term="Azure AD" /><category term="m365" /><category term="Entra ID" /><category term="azure-ad" /><category term="m365" /><summary type="html"><![CDATA[Microsoft Entra ID learning material. SC-300 prepp-material]]></summary></entry><entry><title type="html">Azure Fundementals</title><link href="http://localhost:4000/azure/m365/2025/10/02/azure_fundementals.html" rel="alternate" type="text/html" title="Azure Fundementals" /><published>2025-10-02T00:00:00+02:00</published><updated>2025-10-02T00:00:00+02:00</updated><id>http://localhost:4000/azure/m365/2025/10/02/azure_fundementals</id><content type="html" xml:base="http://localhost:4000/azure/m365/2025/10/02/azure_fundementals.html"><![CDATA[<p>Azure Fundamentals Summary (AZ-900)</p>
+<hr />]]></content><author><name></name></author><category term="Entra ID" /><category term="Azure AD" /><category term="m365" /><category term="Entra ID" /><category term="azure-ad" /><category term="m365" /><summary type="html"><![CDATA[Microsoft Entra ID learning material. SC-300 prepp-material]]></summary></entry><entry><title type="html">Microsoft Security Operations Analyst</title><link href="http://localhost:4000/entra%20id/azure%20ad/m365/sc-200/2025/10/02/SC-200.html" rel="alternate" type="text/html" title="Microsoft Security Operations Analyst" /><published>2025-10-02T00:00:00+02:00</published><updated>2025-10-02T00:00:00+02:00</updated><id>http://localhost:4000/entra%20id/azure%20ad/m365/sc-200/2025/10/02/SC-200</id><content type="html" xml:base="http://localhost:4000/entra%20id/azure%20ad/m365/sc-200/2025/10/02/SC-200.html"><![CDATA[<h3 id="microsoft-365-defender">Microsoft 365 Defender:</h3>
+<p>Microsoft 365 Defender is an XDR from Microsoft and a unified suite of tools providing enterprise level security for pre and post-beach. Microsoft 365 provides support for all stages of a compromise for example, detection, investigation, prevention, response across endpoints, emails,<br />
+identities and applications.</p>
+
+<h3 id="microsoft-365-defender-package-include">Microsoft 365 defender package include:</h3>
+<p>✔ Defender for Endpoint (MDE)<br />
+✔ Defender for Office (MDO)<br />
+✔ Defender for Identity (MDI)<br />
+✔ Defender for IoT<br />
+✔ Defender for Cloud Apps (protects Saas and Paas apps)<br />
+✔ Defender for Cloud (Cloud environment)<br />
+✔ Data Loss Protection (MDLP)<br />
+✔ Entra Identity Protection</p>
+
+<h3 id="microsoft-purview">Microsoft Purview:</h3>
+<p>Governance, compliance and data loss protection</p>
+
+<h3 id="azure-information-protection">Azure Information Protection:</h3>
+<p>Scans for sensitive data in your corporate emails<br />
+and documents.</p>
+
+<h3 id="zero-hour-auto-purge-zap">Zero-hour auto purge (ZAP):</h3>
+<p>Is a Microsoft protection feature for emails that have already been delivered.<br />
+Microsoft can neutralise some email threats such as phishings in transit meaning<br />
+before they are delivered but some email threats may make their way to the user’s<br />
+inbox due to redirects for example.</p>
+
+<p>So therefore if a Microsoft ZAP detects an email<br />
+threat in a user’s inbox it will directly neutralise it but it is still important to investigate<br />
+because the user may have established a connection before the malicious email is<br />
+neutralised by ZAP.</p>
+
+<p>In email redirects, an email may look fine but the direct could be<br />
+malicious so therefore it may bypass Microsoft email protection in transit.</p>
+
+<h3 id="microsoft-threat-analytics">Microsoft Threat Analytics:</h3>
+<p>Is a threat intelligence platform from Microsoft which drives the Microsoft security<br />
+products in terms of up to date threats, such as active threats and their campaigns,<br />
+prevalent malware, new vulnerabilities and so on. Microsoft threat analytics is<br />
+accessed from Microsoft 365 defender portal.</p>
+
+<h3 id="two-types-of-risks-in-azure-identity-protection">Two types of risks in Azure Identity Protection:</h3>
+<h3 id="1--user-risks">1- User Risks:</h3>
+<p>are all risks that are post sign-in. For example, after a user has<br />
+signed in and defender for identity detects suspicious user behaviour.</p>
+
+<h3 id="2--sign-in-risks">2- Sign-in Risks:</h3>
+<p>are all sign-in related risks. For example, when a MDI detects<br />
+suspicious sign-in behaviour of a user such as signing in from a different<br />
+location, Atypical travel (signin-in from two different countries during short<br />
+time intervals), sign-ins from malware linked Ips and anonymous sign-ins<br />
+which are sign-ins relayed through proxy servers such as TOR.</p>
+
+<h3 id="obs">OBS:</h3>
+<p>Microsoft Defender for Office 365 is a cloud-based email filtering service that<br />
+helps protect your organisation. No agents are deployed. Microsoft defender for<br />
+Identity is also a cloud based product so no agent needs to be deployed there either<br />
+on devices since it is running in the cloud.</p>
+
+<h3 id="mdo-preset-security-policies">MDO preset security policies:</h3>
+<p>Defender for office protects against email related<br />
+threats such as phishing, malware, and spam by applying different types of security<br />
+policies. Preset security policies is a collection of all these security policies and can<br />
+be activated with one go rather than applying and customising each policy<br />
+individually. Microsoft recommends to activate preset security policies because it is<br />
+continuously updated and maintained by microsoft.</p>
+
+<p><strong>Activate MDO preset security policies:</strong><br />
+Defender portal &gt; Email &amp; Collaboration &gt; Policies &amp; rules &gt; Threat Policies &gt; Preset security policies.</p>
+
+<h3 id="dlp-data-loss-prevention">DLP (Data Loss Prevention):</h3>
+<p>is used to protect data in such as Exchange online,<br />
+Onedrive, sharepoint Online, Teams and so on. Main components of DLP are:</p>
+
+<ol>
+  <li>Sensitive information Types: such as personal information, credit cards etc.</li>
+  <li>Sensitivity labels: Such as public, private and classified. These labels are<br />
+attached to documents to identify them and protect them by DLP policies.</li>
+</ol>
+
+<p>As a security analyst it is important to understand DLP (Data Loss Prevention) alerts.<br />
+Such alerts could be generated from either Microsoft Purview Compliance or<br />
+Microsoft Defender for Cloud Apps.</p>
+
+<p>As a security analyst you may not be responsible<br />
+for creating DLP policy, but you still need to understand DLP alerts and how the<br />
+policy comes into action. The data has to be protected because of organisational<br />
+standards (business critical data) or industry regulations such as GDPR.</p>
+
+<p>A DLP policy is used to either block or grant access to documents and data in cloud<br />
+storage such as onedrive, sharepoint online, teams, and exchange online. A DLP<br />
+policy can also look for sensitive information such as passwords, date of birth,<br />
+personal security numbers and so on in documents which exist in the cloud or<br />
+shared with external partners or users.</p>
+
+<p>So whenever working with data governance<br />
+or compliance having DLP policies are very important to be set up and working.</p>
+
+<p>You can educate your users about DLP policies and help them remain compliant<br />
+without blocking their work. For example, if a user tries to share a document<br />
+containing sensitive information, a DLP policy can send them an email notification<br />
+and show them a policy tip in the context of the document library that allows them to<br />
+override the policy if they have a business justification. The same policy tips also<br />
+appear in Outlook on the web, Outlook, Excel, PowerPoint, and Word.</p>
+
+<h3 id="there-are-three-types-of-violations-in-microsoft-defender-for-cloud-apps">There are three types of violations in Microsoft defender for cloud apps:</h3>
+<p>1- Serious Violations: Require immediate action, such as suspending<br />
+accounts, restricting permissions, or blocking access.<br />
+2- Questionable Violations: Need further investigation, including contacting<br />
+users or their managers for more information.<br />
+3- Authorised Violations or Anomalous Behaviour: Result from legitimate use<br />
+and can be dismissed.</p>
+
+<p>Defender for cloud apps “File policy” is used for DLP.</p>
+
+<h3 id="microsoft-purview-insider-risk-management">Microsoft Purview Insider Risk Management</h3>
+<p>It is an insider (employee) risk management tool which correlates various signals to identify<br />
+potential malicious or inadvertent insider risks, such as IP theft, data leakage and security<br />
+violations. Insider risk management enables customers to create policies to manage security<br />
+and compliance.</p>
+
+<h3 id="audit-logs">Audit logs:</h3>
+<p>These logs are post sign-in activity which is a comprehensive report on every<br />
+logged event in Microsoft Entra ID. Changes to applications, groups, users, and licences are all<br />
+captured in the Microsoft Entra audit logs. Other types of logs are Sign-in Logs which is all<br />
+activity related to sign-ins such as sign-in IP, location, device, user agent and a lot more. So<br />
+audit logs are all activates after being performed after the user has signed in.</p>
+
+<h3 id="role-group-options-when-configuring-insider-risk-management">Role group options when configuring insider risk management:</h3>
+<p>● Insider Risk Management<br />
+● Insider Risk Management Admin<br />
+● Insider Risk Management Analysts<br />
+● Insider Risk Management Investigators</p>
+
+<p>To use insider risk management every policy must be assigned a template.</p>
+
+<h3 id="asr-attack-surface-reduction">ASR (Attack Surface Reduction):</h3>
+<p>Your organisation’s attack surface includes all the places where an attacker could<br />
+compromise your organisation’s devices or networks. Reducing your attack surface<br />
+means protecting your organisation’s devices and network, which leaves attackers with<br />
+fewer ways to perform attacks, this process is called Attack Surface Reduction.</p>
+
+<h3 id="components-of-attack-surface-reduction-include">Components of Attack Surface Reduction include:</h3>
+<p>1- Hardware-based isolation<br />
+2- Application Control<br />
+3- Exploit Protection<br />
+4- Network protection<br />
+5- Web protection<br />
+6- Controlled folder Access<br />
+7- Device control</p>
+
+<h3 id="each-attack-surface-reduction-rule-contains-one-of-four-settings">Each Attack Surface Reduction rule contains one of four settings:</h3>
+<p>1- Not configured<br />
+2- Block<br />
+3- Audit<br />
+4- Warn</p>
+
+<h3 id="you-can-enable-attack-surface-reduction-rules-by-using">You can enable attack surface reduction rules by using:</h3>
+<p>● Microsoft Intune<br />
+● Mobile Device Management (MDM)<br />
+● Microsoft Endpoint Configuration Manager<br />
+● Group Policy<br />
+● PowerShell</p>
+
+<h3 id="microsoft-defender-for-endpoint-mde">Microsoft Defender for Endpoint (MDE):</h3>
+<p>MDE also offers vulnerability management apart from detection and response capabilities.</p>
+
+<h3 id="edr-in-block-mode">EDR in block mode:</h3>
+<p>When endpoint detection and response (EDR) in block mode is turned on, Defender for<br />
+Endpoint blocks malicious artefacts or behaviours that are observed through post-breach<br />
+protection.</p>
+
+<h3 id="creating-custom-detection">Creating Custom Detection</h3>
+<p>Custom detections are very powerful detecting advanced and complex threats.</p>
+
+<h3 id="threat-analytics-intelligence">Threat Analytics (Intelligence):</h3>
+<p>is part of Microsoft threat intelligence platform and is built into defender XDR.</p>
+
+<h3 id="attack-simulation">Attack Simulation:</h3>
+<p>Defender for Office 365 offers attack simulation where you can create fake attacks.</p>
+
+<h3 id="defender-for-identity">Defender for Identity:</h3>
+<p>requires on-prem active directory infrastructure.</p>
+
+<h3 id="defender-for-cloud-apps">Defender for Cloud Apps:</h3>
+<p>is used to protect SaaS and PaaS applications running in the cloud.</p>
+
+<h3 id="microsoft-defender-for-cloud-mdc">Microsoft Defender for Cloud (MDC):</h3>
+<p>is used to protect cloud infrastructure.</p>
+
+<h3 id="logic-apps">Logic Apps:</h3>
+<p>you can use Logic Apps to automate the operation of your business processes.</p>
+
+<h3 id="log-analytics">Log Analytics:</h3>
+<p>is a tool within Azure Monitor.</p>
+
+<h3 id="watchlists">Watchlists:</h3>
+<p>You can use Watchlists in Sentinel to store Indicators of Compromise (IoCs).</p>
+
+<h3 id="playbooks">Playbooks:</h3>
+<p>you can create playbooks on how to respond to security alerts.</p>
+
+<h3 id="workbooks">Workbooks:</h3>
+<p>Sentinel Workbooks are used to visualize data for analysis purposes.</p>
+
+<h3 id="sentinel-analytics-rules">Sentinel Analytics Rules:</h3>
+<p>You can create your custom detection rules in Sentinel.</p>
+
+<h3 id="connecting-third-party-logs-to-sentinel">Connecting third party logs to Sentinel:</h3>
+<ol>
+  <li>Install data connector</li>
+  <li>Install Azure monitor agent</li>
+  <li>Create data collection Rule</li>
+  <li>Verify logs in sentinel</li>
+</ol>
+
+<h3 id="sentinel-roles">Sentinel Roles:</h3>
+<p>Sentinel Responder<br />
+Logic App Operator<br />
+Logic App Contributor<br />
+Sentinel Contributor<br />
+Sentinel Automation Contributor</p>
+
+<h3 id="microsoft-ready-to-use-templates">Microsoft ready to use templates:</h3>
+<p>https://github.com/Azure/Azure-Sentinel</p>]]></content><author><name></name></author><category term="Entra ID" /><category term="Azure AD" /><category term="m365" /><category term="sc-200" /><category term="Entra ID" /><category term="azure-ad" /><category term="m365" /><category term="sc-200" /><summary type="html"><![CDATA[Microsoft Defender XDR learning material. SC-200 prepp-material]]></summary></entry><entry><title type="html">Azure Fundementals</title><link href="http://localhost:4000/azure/m365/2025/10/02/azure_fundementals.html" rel="alternate" type="text/html" title="Azure Fundementals" /><published>2025-10-02T00:00:00+02:00</published><updated>2025-10-02T00:00:00+02:00</updated><id>http://localhost:4000/azure/m365/2025/10/02/azure_fundementals</id><content type="html" xml:base="http://localhost:4000/azure/m365/2025/10/02/azure_fundementals.html"><![CDATA[<p>Azure Fundamentals Summary (AZ-900)</p>
 
 <p>Cloud services and cloud computing
 Cloud computing utilizes remote servers instead of on-premise infrastructure. It’s in high demand due to its cost-effectiveness, security, and 24/7 availability. Major providers like Azure, Amazon, and Google offer a range of services including computing power, storage, AI, and networking.

@@ -1,0 +1,232 @@
+---
+layout: post
+title:  "Microsoft Security Operations Analyst"
+date:   2025-10-02
+categories: [Entra ID, Azure AD, m365, sc-200]
+tags: [Entra ID, azure-ad, m365, sc-200]
+description: "Microsoft Defender XDR learning material. SC-200 prepp-material"
+---
+
+
+
+### Microsoft 365 Defender:
+Microsoft 365 Defender is an XDR from Microsoft and a unified suite of tools providing enterprise level security for pre and post-beach. Microsoft 365 provides support for all stages of a compromise for example, detection, investigation, prevention, response across endpoints, emails,  
+identities and applications.
+
+### Microsoft 365 defender package include:
+✔ Defender for Endpoint (MDE)  
+✔ Defender for Office (MDO)  
+✔ Defender for Identity (MDI)  
+✔ Defender for IoT  
+✔ Defender for Cloud Apps (protects Saas and Paas apps)  
+✔ Defender for Cloud (Cloud environment)  
+✔ Data Loss Protection (MDLP)  
+✔ Entra Identity Protection  
+
+### Microsoft Purview:
+Governance, compliance and data loss protection
+
+### Azure Information Protection:
+Scans for sensitive data in your corporate emails  
+and documents.
+
+### Zero-hour auto purge (ZAP):
+Is a Microsoft protection feature for emails that have already been delivered.  
+Microsoft can neutralise some email threats such as phishings in transit meaning  
+before they are delivered but some email threats may make their way to the user’s  
+inbox due to redirects for example.
+
+So therefore if a Microsoft ZAP detects an email  
+threat in a user’s inbox it will directly neutralise it but it is still important to investigate  
+because the user may have established a connection before the malicious email is  
+neutralised by ZAP.
+
+In email redirects, an email may look fine but the direct could be  
+malicious so therefore it may bypass Microsoft email protection in transit.
+
+### Microsoft Threat Analytics:
+Is a threat intelligence platform from Microsoft which drives the Microsoft security  
+products in terms of up to date threats, such as active threats and their campaigns,  
+prevalent malware, new vulnerabilities and so on. Microsoft threat analytics is  
+accessed from Microsoft 365 defender portal.
+
+### Two types of risks in Azure Identity Protection:
+### 1- User Risks:
+are all risks that are post sign-in. For example, after a user has  
+signed in and defender for identity detects suspicious user behaviour.
+
+### 2- Sign-in Risks:
+are all sign-in related risks. For example, when a MDI detects  
+suspicious sign-in behaviour of a user such as signing in from a different  
+location, Atypical travel (signin-in from two different countries during short  
+time intervals), sign-ins from malware linked Ips and anonymous sign-ins  
+which are sign-ins relayed through proxy servers such as TOR.
+
+### OBS:
+Microsoft Defender for Office 365 is a cloud-based email filtering service that  
+helps protect your organisation. No agents are deployed. Microsoft defender for  
+Identity is also a cloud based product so no agent needs to be deployed there either  
+on devices since it is running in the cloud.
+
+### MDO preset security policies:
+Defender for office protects against email related  
+threats such as phishing, malware, and spam by applying different types of security  
+policies. Preset security policies is a collection of all these security policies and can  
+be activated with one go rather than applying and customising each policy  
+individually. Microsoft recommends to activate preset security policies because it is  
+continuously updated and maintained by microsoft.
+
+**Activate MDO preset security policies:**  
+Defender portal > Email & Collaboration > Policies & rules > Threat Policies > Preset security policies.
+
+### DLP (Data Loss Prevention):
+is used to protect data in such as Exchange online,  
+Onedrive, sharepoint Online, Teams and so on. Main components of DLP are:
+
+1. Sensitive information Types: such as personal information, credit cards etc.  
+2. Sensitivity labels: Such as public, private and classified. These labels are  
+attached to documents to identify them and protect them by DLP policies.
+
+As a security analyst it is important to understand DLP (Data Loss Prevention) alerts.  
+Such alerts could be generated from either Microsoft Purview Compliance or  
+Microsoft Defender for Cloud Apps.
+
+As a security analyst you may not be responsible  
+for creating DLP policy, but you still need to understand DLP alerts and how the  
+policy comes into action. The data has to be protected because of organisational  
+standards (business critical data) or industry regulations such as GDPR.
+
+A DLP policy is used to either block or grant access to documents and data in cloud  
+storage such as onedrive, sharepoint online, teams, and exchange online. A DLP  
+policy can also look for sensitive information such as passwords, date of birth,  
+personal security numbers and so on in documents which exist in the cloud or  
+shared with external partners or users.
+
+So whenever working with data governance  
+or compliance having DLP policies are very important to be set up and working.
+
+You can educate your users about DLP policies and help them remain compliant  
+without blocking their work. For example, if a user tries to share a document  
+containing sensitive information, a DLP policy can send them an email notification  
+and show them a policy tip in the context of the document library that allows them to  
+override the policy if they have a business justification. The same policy tips also  
+appear in Outlook on the web, Outlook, Excel, PowerPoint, and Word.
+
+### There are three types of violations in Microsoft defender for cloud apps:
+1- Serious Violations: Require immediate action, such as suspending  
+accounts, restricting permissions, or blocking access.  
+2- Questionable Violations: Need further investigation, including contacting  
+users or their managers for more information.  
+3- Authorised Violations or Anomalous Behaviour: Result from legitimate use  
+and can be dismissed.
+
+Defender for cloud apps “File policy” is used for DLP.
+
+### Microsoft Purview Insider Risk Management
+It is an insider (employee) risk management tool which correlates various signals to identify  
+potential malicious or inadvertent insider risks, such as IP theft, data leakage and security  
+violations. Insider risk management enables customers to create policies to manage security  
+and compliance.
+
+### Audit logs:
+These logs are post sign-in activity which is a comprehensive report on every  
+logged event in Microsoft Entra ID. Changes to applications, groups, users, and licences are all  
+captured in the Microsoft Entra audit logs. Other types of logs are Sign-in Logs which is all  
+activity related to sign-ins such as sign-in IP, location, device, user agent and a lot more. So  
+audit logs are all activates after being performed after the user has signed in.
+
+### Role group options when configuring insider risk management:
+● Insider Risk Management  
+● Insider Risk Management Admin  
+● Insider Risk Management Analysts  
+● Insider Risk Management Investigators  
+
+To use insider risk management every policy must be assigned a template.
+
+### ASR (Attack Surface Reduction):
+Your organisation's attack surface includes all the places where an attacker could  
+compromise your organisation's devices or networks. Reducing your attack surface  
+means protecting your organisation's devices and network, which leaves attackers with  
+fewer ways to perform attacks, this process is called Attack Surface Reduction.
+
+### Components of Attack Surface Reduction include:
+1- Hardware-based isolation  
+2- Application Control  
+3- Exploit Protection  
+4- Network protection  
+5- Web protection  
+6- Controlled folder Access  
+7- Device control  
+
+### Each Attack Surface Reduction rule contains one of four settings:
+1- Not configured  
+2- Block  
+3- Audit  
+4- Warn  
+
+### You can enable attack surface reduction rules by using:
+● Microsoft Intune  
+● Mobile Device Management (MDM)  
+● Microsoft Endpoint Configuration Manager  
+● Group Policy  
+● PowerShell  
+
+### Microsoft Defender for Endpoint (MDE):
+MDE also offers vulnerability management apart from detection and response capabilities.
+
+### EDR in block mode:
+When endpoint detection and response (EDR) in block mode is turned on, Defender for  
+Endpoint blocks malicious artefacts or behaviours that are observed through post-breach  
+protection.
+
+### Creating Custom Detection
+Custom detections are very powerful detecting advanced and complex threats.
+
+### Threat Analytics (Intelligence):
+is part of Microsoft threat intelligence platform and is built into defender XDR.
+
+### Attack Simulation:
+Defender for Office 365 offers attack simulation where you can create fake attacks.
+
+### Defender for Identity:
+requires on-prem active directory infrastructure.
+
+### Defender for Cloud Apps:
+is used to protect SaaS and PaaS applications running in the cloud.
+
+### Microsoft Defender for Cloud (MDC):
+is used to protect cloud infrastructure.
+
+### Logic Apps:
+you can use Logic Apps to automate the operation of your business processes.
+
+### Log Analytics:
+is a tool within Azure Monitor.
+
+### Watchlists:
+You can use Watchlists in Sentinel to store Indicators of Compromise (IoCs).
+
+### Playbooks:
+you can create playbooks on how to respond to security alerts.
+
+### Workbooks:
+Sentinel Workbooks are used to visualize data for analysis purposes.
+
+### Sentinel Analytics Rules:
+You can create your custom detection rules in Sentinel.
+
+### Connecting third party logs to Sentinel:
+1. Install data connector  
+2. Install Azure monitor agent  
+3. Create data collection Rule  
+4. Verify logs in sentinel  
+
+### Sentinel Roles:
+Sentinel Responder  
+Logic App Operator  
+Logic App Contributor  
+Sentinel Contributor  
+Sentinel Automation Contributor  
+
+### Microsoft ready to use templates:
+https://github.com/Azure/Azure-Sentinel

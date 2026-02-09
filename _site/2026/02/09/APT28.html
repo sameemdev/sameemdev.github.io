@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Verifying Detection Coverage for APT28 | Overwatch</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Verifying Detection Coverage for APT28" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Verifying detection coverage for APT28" />
+<meta property="og:description" content="Verifying detection coverage for APT28" />
+<link rel="canonical" href="http://localhost:4000/2026/02/09/APT28.html" />
+<meta property="og:url" content="http://localhost:4000/2026/02/09/APT28.html" />
+<meta property="og:site_name" content="Overwatch" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-09T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Verifying Detection Coverage for APT28" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-09T00:00:00+01:00","datePublished":"2026-02-09T00:00:00+01:00","description":"Verifying detection coverage for APT28","headline":"Verifying Detection Coverage for APT28","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/02/09/APT28.html"},"url":"http://localhost:4000/2026/02/09/APT28.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Overwatch" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Overwatch</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/cybersecurity/">Cybersecurity</a><a class="page-link" href="/basic-cybersecurity/">Microsoft 365 Security</a><a class="page-link" href="/about/">Whoami</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Verifying Detection Coverage for APT28</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-02-09T00:00:00+01:00" itemprop="datePublished">Feb 9, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>APT28 is an infamous group linked to the Russian Intelligence Services <a href="https://attack.mitre.org/groups/G0007/">MITRE Group G0007</a>.<br />
+This APT group has been involved in several highly sophisticated cyberattacks and was recently reported to have exploited a Microsoft Office bypass vulnerability <a href="https://www.zscaler.com/blogs/security-research/apt28-leverages-cve-2026-21509-operation-neusploit">(CVE-2026-21509)</a>.</p>
+
+<p>To protect your organization’s assets from APT28, it is crucial to understand the TTPs they utilize. Detections built around specific APT groups can be too restrictive because APTs do not operate in fixed or repeatable ways—they deliberately change tools, techniques, and workflows. If a detection assumes “APT28 always does X,” it may fail the moment they do Y instead.</p>
+
+<p>In this brief guide, we will review some of the notable tactics, techniques, and procedures used by APT28, which can still be useful as a foundation for your detection coverage.</p>
+
+<h4 id="step-1-threat-coverage-identification">Step 1: Threat Coverage Identification</h4>
+
+<p>First, collect relevant MITRE ATT&amp;CK technique IDs from the MITRE ATT&amp;CK platform or MITRE ATT&amp;CK Navigator. Then, map these technique IDs to available Atomic Red Team tests to identify which adversary behaviors can be emulated.</p>
+
+<blockquote>
+  <p>💡 <strong>Tip:</strong> The figure below is large. To see the subtechniques clearly, right-click and save it to your computer.</p>
+</blockquote>
+
+<div class="image-container">
+  <img src="/assets/images/apt28.svg" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Overview of APT28 Tactics, Techniques, and Subtechniques</p>
+</div>
+
+<h4 id="step-2-verify-available-atomic-red-team-tests">Step 2: Verify Available Atomic Red Team Tests</h4>
+
+<div class="image-container">
+  <img src="/assets/images/APT28_ThreatIds.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 Threat IDs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 2: Screenshot showing which ART tests are available for APT28 Threat IDs</p>
+</div>
+
+<p>From the screenshot above, we can see that only some of the ART tests are available. This means we can now take each of these Threat IDs and check which ART tests are associated with them. For example, the first Threat ID with an associated ART test is T1059.001.</p>
+
+<div class="image-container">
+  <img src="/assets/images/ART-T1059.001.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 3: Atomic Red Team tests associated with technique T1059.001 (Command and Scripting Interpreter: PowerShell)</p>
+</div>
+
+<p>As shown above, there are 22 tests available in Atomic Red Team that are associated with APT28. The technique T1059.001, named “Command and Scripting Interpreter: PowerShell,” is widely used not only by this APT but also by other groups.</p>
+
+<h4 id="step-3-detection-validation">Step 3: Detection Validation</h4>
+
+<p>Execute the corresponding Atomic Red Team tests and observe whether they trigger your current detections.</p>
+
+<ul>
+  <li>Tests that successfully trigger alerts indicate existing detection coverage.</li>
+  <li>Tests that do not trigger alerts highlight gaps for the associated MITRE ATT&amp;CK techniques.</li>
+</ul>
+
+<hr />
+
+<p><strong>Important:</strong> Tests should never be performed in a production environment. After test execution, perform a full clean-up to remove any artifacts, processes, or configuration changes introduced during testing.</p>
+
+  </div><a class="u-url" href="/2026/02/09/APT28.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Overwatch</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/sameemdev"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">sameemdev</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

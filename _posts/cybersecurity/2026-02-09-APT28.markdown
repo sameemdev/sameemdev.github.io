@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Verifying Detection Coverage for APT28"
+date:   2026-02-09
+categories: []
+tags: [APT]
+description: "Verifying detection coverage for APT28"
+---
+
+APT28 is an infamous group linked to the Russian Intelligence Services [MITRE Group G0007](https://attack.mitre.org/groups/G0007/).  
+This APT group has been involved in several highly sophisticated cyberattacks and was recently reported to have exploited a Microsoft Office bypass vulnerability [(CVE-2026-21509)](https://www.zscaler.com/blogs/security-research/apt28-leverages-cve-2026-21509-operation-neusploit).
+
+To protect your organization’s assets from APT28, it is crucial to understand the TTPs they utilize. Detections built around specific APT groups can be too restrictive because APTs do not operate in fixed or repeatable ways—they deliberately change tools, techniques, and workflows. If a detection assumes “APT28 always does X,” it may fail the moment they do Y instead.
+
+In this brief guide, we will review some of the notable tactics, techniques, and procedures used by APT28, which can still be useful as a foundation for your detection coverage.
+
+#### Step 1: Threat Coverage Identification
+
+First, collect relevant MITRE ATT&CK technique IDs from the MITRE ATT&CK platform or MITRE ATT&CK Navigator. Then, map these technique IDs to available Atomic Red Team tests to identify which adversary behaviors can be emulated.
+
+>💡 **Tip:** The figure below is large. To see the subtechniques clearly, right-click and save it to your computer.
+
+<div class="image-container">
+  <img src="{{ site.baseurl }}/assets/images/apt28.svg" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs">
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Overview of APT28 Tactics, Techniques, and Subtechniques</p>
+</div>
+
+#### Step 2: Verify Available Atomic Red Team Tests
+
+<div class="image-container">
+  <img src="{{ site.baseurl }}/assets/images/APT28_ThreatIds.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 Threat IDs">
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 2: Screenshot showing which ART tests are available for APT28 Threat IDs</p>
+</div>
+
+From the screenshot above, we can see that only some of the ART tests are available. This means we can now take each of these Threat IDs and check which ART tests are associated with them. For example, the first Threat ID with an associated ART test is T1059.001.
+
+<div class="image-container">
+  <img src="{{ site.baseurl }}/assets/images/ART-T1059.001.png" style="width:100%; max-width:800px; height:auto;" alt="APT28 TTPs">
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 3: Atomic Red Team tests associated with technique T1059.001 (Command and Scripting Interpreter: PowerShell)</p>
+</div>
+
+As shown above, there are 22 tests available in Atomic Red Team that are associated with APT28. The technique T1059.001, named "Command and Scripting Interpreter: PowerShell," is widely used not only by this APT but also by other groups.  
+
+#### Step 3: Detection Validation
+
+Execute the corresponding Atomic Red Team tests and observe whether they trigger your current detections.
+
+- Tests that successfully trigger alerts indicate existing detection coverage.  
+- Tests that do not trigger alerts highlight gaps for the associated MITRE ATT&CK techniques.  
+
+---
+
+**Important:** Tests should never be performed in a production environment. After test execution, perform a full clean-up to remove any artifacts, processes, or configuration changes introduced during testing.

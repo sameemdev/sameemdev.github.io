@@ -113,6 +113,7 @@ pre > code {
   max-width: calc(800px - 30px * 2);
   margin: 0 auto;
   padding: 0 30px;
+  background-color:  #242b37;  
 }
 @media screen and (max-width: 800px) {
   .wrapper {

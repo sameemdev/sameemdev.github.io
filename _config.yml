@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Overwatch
-description: "Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe."
+description: "Some random personal stuff about cyber"
 baseurl: ""
 url: "https://sameemdev.github.io"
 github_username: sameemdev

@@ -112,7 +112,7 @@ permalink: /about/
                                     Vulnerability Management | Cyber Threat 
                                     Intelligence | Security Assessments | 
                                     Basic Endpoint Forensics| Defender XDR|
-                                    Entra ID | Intune
+                                    Entra ID | Microsoft Sentinel | Intune Security 
 
 
    Microsoft Certified  . . . . . : Microsoft Security Operations Analyst (SC-200)

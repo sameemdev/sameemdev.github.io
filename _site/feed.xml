@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-10T19:41:53+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Overwatch</title><subtitle>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</subtitle><entry><title type="html">Verifying Detection Coverage for APT28</title><link href="http://localhost:4000/cybersecurity/2026/02/09/APT28.html" rel="alternate" type="text/html" title="Verifying Detection Coverage for APT28" /><published>2026-02-09T00:00:00+01:00</published><updated>2026-02-09T00:00:00+01:00</updated><id>http://localhost:4000/cybersecurity/2026/02/09/APT28</id><content type="html" xml:base="http://localhost:4000/cybersecurity/2026/02/09/APT28.html"><![CDATA[<p>APT28 is an infamous group linked to the Russian Intelligence Services <a href="https://attack.mitre.org/groups/G0007/">MITRE Group G0007</a>.<br />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-11T21:48:53+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Overwatch</title><subtitle>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</subtitle><entry><title type="html">Forensic Script Output Parser</title><link href="http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html" rel="alternate" type="text/html" title="Forensic Script Output Parser" /><published>2026-02-11T00:00:00+01:00</published><updated>2026-02-11T00:00:00+01:00</updated><id>http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser</id><content type="html" xml:base="http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html"><![CDATA[<blockquote>
+  <p><strong>-</strong>This article introduces — CSV-Sploiter a tool  which I built with Lovable (zero code) free subscription. CSV-Sploiter takes CSV files containing collected artefacts and displays them in a clean, Splunk-style searchable interface.</p>
+</blockquote>
+
+<p>Let’s say your manager hands you a windows computer that is suspected to be compromised. They want to know two things: Is it actually compromised? And if so, what artefacts indicate that?</p>
+
+<p>You’re not a forensic expert, so there’s no need for deep memory level forensics. The first thing that comes to your mind is to check for suspicious artefacts by running a collection script on the potentially compromised system and then sifting through the collected data to identify anomalies.</p>
+
+<p>There are several great community-driven scripts available for initial artefact collection. One that I personally find particularly useful is the DFIR PowerShell script by <a href="https://github.com/Bert-JanP/Incident-Response-Powershell/blob/main/DFIR-Script.ps1">(Bert-JanP)</a>.</p>
+
+<p>As the author explains after running the script:</p>
+
+<p>“The collected information is saved in an output directory in the current folder, by creating a folder named ‘DFIR-hostname-year-month-date’. This folder is zipped at the end to enable easy collection. The script can also be integrated with Microsoft Defender for Endpoint through Live Response sessions, making it practical in enterprise environments.”</p>
+
+<p>The script exports these artefacts to multiple folders and csv files, reviewing them manually can quickly become overwhelming and time-consuming.</p>
+
+<p>To simplify this process, I built a lightweight CSV parser using Lovable (zero-code). The tool allows you to upload either a single CSV file or an entire folder of collected artefacts and view the data in a clean, Splunk-style interface. It also enables searching across all collected artefacts for specific IoCs. The parser works offline and can be cloned from my GitHub repository.</p>
+
+<p>Alright let’s do some action now:</p>
+
+<h3 id="step-1-running-the-powershell-script-as-admin">Step 1: Running the powershell script as admin</h3>
+
+<div class="image-container">
+  <img src="/assets/images/DFIR-script.png" style="width:100%; max-width:800px; height:auto;" alt="DFIR Script" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Running the collection script</p>
+</div>
+
+<h3 id="step-2-running--csv-sploiter-parser-tool">Step 2: Running -csv-sploiter parser tool</h3>
+<p>Clone the -csv-sploiter and run on local server with command “npm run dev – –host localhost”. Afterwords uppload the folder “CSV Results (SIEM Import Data)” which contains all the aretifacts in csv files into the CSV parser.</p>
+
+<div class="image-container">
+  <img src="/assets/images/csv-parser.png" style="width:100%; max-width:800px; height:auto;" alt="CSV Parser" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 2: -CSV-sploiter displays the collected artefacts in a clean, splunk style interface with search funktionality</p>
+</div>]]></content><author><name></name></author><category term="cybersecurity" /><category term="Forensics" /><category term="cybersecurity" /><summary type="html"><![CDATA[Forensic Script Output Parser]]></summary></entry><entry><title type="html">Verifying Detection Coverage for APT28</title><link href="http://localhost:4000/cybersecurity/2026/02/09/APT28.html" rel="alternate" type="text/html" title="Verifying Detection Coverage for APT28" /><published>2026-02-09T00:00:00+01:00</published><updated>2026-02-09T00:00:00+01:00</updated><id>http://localhost:4000/cybersecurity/2026/02/09/APT28</id><content type="html" xml:base="http://localhost:4000/cybersecurity/2026/02/09/APT28.html"><![CDATA[<p>APT28 is an infamous group linked to the Russian Intelligence Services <a href="https://attack.mitre.org/groups/G0007/">MITRE Group G0007</a>.<br />
 This APT group has been involved in several highly sophisticated cyberattacks and was recently reported to have exploited a Microsoft Office bypass vulnerability <a href="https://www.zscaler.com/blogs/security-research/apt28-leverages-cve-2026-21509-operation-neusploit">(CVE-2026-21509)</a>.</p>
 
 <p>To protect your organization’s assets from APT28, it is crucial to understand the TTPs they utilize. Detections built around specific APT groups can be too restrictive because APTs do not operate in fixed or repeatable ways—they deliberately change tools, techniques, and workflows. If a detection assumes “APT28 always does X,” it may fail the moment they do Y instead.</p>

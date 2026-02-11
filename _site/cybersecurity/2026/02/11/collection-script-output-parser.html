@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Forensic Script Output Parser | Overwatch</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Forensic Script Output Parser" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Forensic Script Output Parser" />
+<meta property="og:description" content="Forensic Script Output Parser" />
+<link rel="canonical" href="http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html" />
+<meta property="og:url" content="http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html" />
+<meta property="og:site_name" content="Overwatch" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-11T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Forensic Script Output Parser" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-11T00:00:00+01:00","datePublished":"2026-02-11T00:00:00+01:00","description":"Forensic Script Output Parser","headline":"Forensic Script Output Parser","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html"},"url":"http://localhost:4000/cybersecurity/2026/02/11/collection-script-output-parser.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Overwatch" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Overwatch</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/cybersecurity/">Cybersecurity</a><a class="page-link" href="/basic-cybersecurity/">Microsoft 365 Security</a><a class="page-link" href="/about/">Whoami</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Forensic Script Output Parser</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-02-11T00:00:00+01:00" itemprop="datePublished">Feb 11, 2026
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <blockquote>
+  <p><strong>-</strong>This article introduces — CSV-Sploiter a tool  which I built with Lovable (zero code) free subscription. CSV-Sploiter takes CSV files containing collected artefacts and displays them in a clean, Splunk-style searchable interface.</p>
+</blockquote>
+
+<p>Let’s say your manager hands you a windows computer that is suspected to be compromised. They want to know two things: Is it actually compromised? And if so, what artefacts indicate that?</p>
+
+<p>You’re not a forensic expert, so there’s no need for deep memory level forensics. The first thing that comes to your mind is to check for suspicious artefacts by running a collection script on the potentially compromised system and then sifting through the collected data to identify anomalies.</p>
+
+<p>There are several great community-driven scripts available for initial artefact collection. One that I personally find particularly useful is the DFIR PowerShell script by <a href="https://github.com/Bert-JanP/Incident-Response-Powershell/blob/main/DFIR-Script.ps1">(Bert-JanP)</a>.</p>
+
+<p>As the author explains after running the script:</p>
+
+<p>“The collected information is saved in an output directory in the current folder, by creating a folder named ‘DFIR-hostname-year-month-date’. This folder is zipped at the end to enable easy collection. The script can also be integrated with Microsoft Defender for Endpoint through Live Response sessions, making it practical in enterprise environments.”</p>
+
+<p>The script exports these artefacts to multiple folders and csv files, reviewing them manually can quickly become overwhelming and time-consuming.</p>
+
+<p>To simplify this process, I built a lightweight CSV parser using Lovable (zero-code). The tool allows you to upload either a single CSV file or an entire folder of collected artefacts and view the data in a clean, Splunk-style interface. It also enables searching across all collected artefacts for specific IoCs. The parser works offline and can be cloned from my GitHub repository.</p>
+
+<p>Alright let’s do some action now:</p>
+
+<h3 id="step-1-running-the-powershell-script-as-admin">Step 1: Running the powershell script as admin</h3>
+
+<div class="image-container">
+  <img src="/assets/images/DFIR-script.png" style="width:100%; max-width:800px; height:auto;" alt="DFIR Script" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 1: Running the collection script</p>
+</div>
+
+<h3 id="step-2-running--csv-sploiter-parser-tool">Step 2: Running -csv-sploiter parser tool</h3>
+<p>Clone the -csv-sploiter and run on local server with command “npm run dev – –host localhost”. Afterwords uppload the folder “CSV Results (SIEM Import Data)” which contains all the aretifacts in csv files into the CSV parser.</p>
+
+<div class="image-container">
+  <img src="/assets/images/csv-parser.png" style="width:100%; max-width:800px; height:auto;" alt="CSV Parser" />
+  <p style="text-align:center; font-style:italic; font-size:0.9em;">Figure 2: -CSV-sploiter displays the collected artefacts in a clean, splunk style interface with search funktionality</p>
+</div>
+
+  </div><a class="u-url" href="/cybersecurity/2026/02/11/collection-script-output-parser.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Overwatch</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/sameemdev"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">sameemdev</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Explore actionable tips, best practices, and expert insights to protect your cloud infrastructure and keep your organization safe.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -7,6 +7,7 @@ tags: [Entra ID, azure-ad, m365]
 description: "Microsoft Entra ID learning material. SC-300 prepp-material"
 ---
 
+> **-** My personal notes about Microsoft SC-300 certification
 
 ### Identity Provider (IdP)
 

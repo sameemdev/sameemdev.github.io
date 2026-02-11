@@ -7,6 +7,8 @@ tags: [AZ-900, azure-ad, m365]
 description: "Microsoft Azure Fundementals learning material. AZ-900 prepp-material"
 ---
 
+> **-** My personal notes about Microsoft AZ-900 certification
+
 Azure Fundamentals Summary (AZ-900)
 
 Cloud services and cloud computing
